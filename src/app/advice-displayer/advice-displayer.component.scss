@@ -1,0 +1,46 @@
+@use "../../styles/variables.scss";
+.advice-displayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+
+  &__advice-title {
+    color: variables.$color-primary-neon-green;
+    max-width: 444px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  &__advice-text {
+    color: variables.$color-primary-light-cyan;
+    max-width: 444px;
+    text-align: center;
+  }
+  &__division-symbol {
+    background-image: url(/assets/images/pattern-divider-desktop.svg);
+    background-repeat: no-repeat;
+    color: variables.$color-primary-light-cyan;
+    fill: variables.$color-primary-light-cyan;
+    width: 444px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .advice-displayer {
+    &__advice-title {
+      max-width: 295px;
+    }
+    &__advice-text {
+      max-width: 295px;
+    }
+    &__division-symbol {
+      background-image: url(/assets/images/pattern-divider-mobile.svg);
+      width: 295px;
+    }
+  }
+}
