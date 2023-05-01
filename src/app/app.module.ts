@@ -4,15 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AdviceDisplayerComponent } from './advice-displayer/advice-displayer.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdviceDisplayerComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, AdviceDisplayerComponent],
+  imports: [BrowserModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -2,5 +2,9 @@
   <app-advice-displayer
     class="container__main-component"
   ></app-advice-displayer>
-  <button aria-label="next-advice-button" class="container__button"></button>
+  <button
+    aria-label="next-advice-button"
+    class="container__button"
+    (click)="getAdvice()"
+  ></button>
 </div>

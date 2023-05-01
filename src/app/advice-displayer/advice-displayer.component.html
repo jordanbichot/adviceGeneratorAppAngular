@@ -1,8 +1,10 @@
 <div class="advice-displayer">
   <p class="advice-displayer__advice-title">
-    {{ currentAdviceTitle$ | async }}
+    Advice #{{ currentAdviceId$ | async }}
   </p>
-  <p class="advice-displayer__advice-text">{{ currentAdviceText$ | async }}</p>
+  <p class="advice-displayer__advice-text">
+    "{{ currentAdviceText$ | async }}"
+  </p>
 
   <div class="advice-displayer__division-symbol"></div>
 </div>
