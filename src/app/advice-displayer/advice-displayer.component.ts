@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AdviceHandlerService } from './data-access/advice-handler.service';
-import { Slip } from './models/slip';
 
 @Component({
   selector: 'app-advice-displayer',

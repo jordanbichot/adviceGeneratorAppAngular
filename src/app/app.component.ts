@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy } from '@angular/core';
 import { AdviceHandlerService } from './advice-displayer/data-access/advice-handler.service';
-import { Slip } from './advice-displayer/models/slip';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,11 +7,18 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  private adviceSubscription: Subscription = new Subscription();
   constructor(private adviceHandlerService: AdviceHandlerService) {}
   public getAdvice() {
-    this.adviceHandlerService.getNewAdvice().subscribe((advice) => {
-      this.adviceHandlerService.setAdvice(advice.slip.id, advice.slip.advice);
-    });
+    this.adviceSubscription = this.adviceHandlerService
+      .getNewAdvice()
+      .subscribe((advice) => {
+        this.adviceHandlerService.setAdvice(advice.slip.id, advice.slip.advice);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.adviceSubscription.unsubscribe();
   }
 }
